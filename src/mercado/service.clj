@@ -70,7 +70,7 @@
               ::http/port 1112
               ;; Options to pass to the container (Jetty)
               ::http/container-options {:h2c? true
-                                        :h2? true
+                                        :h2? false
                                         ;:keystore "test/hp/keystore.jks"
                                         ;:key-password "password"
                                         ;:ssl-port 8443

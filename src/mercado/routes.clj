@@ -1,6 +1,8 @@
 (ns mercado.routes 
   (:require [io.pedestal.http :as http]
-            [io.pedestal.http.body-params :as body-params]))
+            [io.pedestal.http.body-params :as body-params]
+            
+            [mercado.handlers.user.user :as user]))
 
 
 ;; Defines "/" and "/about" routes with their associated :get handlers.
@@ -9,5 +11,5 @@
 (def common-interceptors [(body-params/body-params) http/html-body])
 
 ;; Tabular routes
-(def routes #{["/" :get (conj common-interceptors `home-page)]
-              ["/about" :get (conj common-interceptors `about-page)]})
+(def routes #{["/user" :get (conj common-interceptors `user/get-user)]
+              ["/user" :post (conj common-interceptors `user/create-user)]})
